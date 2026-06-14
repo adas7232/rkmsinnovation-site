@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Banana Fiber Research — RKMS Innovation</title>
+  <title>Banana Fiber — RKMS Innovation</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
   <link rel="icon" type="image/png" href="favicon.png"/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -12,20 +12,27 @@
     :root {
       --blue:      #2563eb;
       --blue-dark: #1d4ed8;
-      --blue-light:#eff6ff;
       --green:     #16a34a;
+      --green-dim: rgba(22,163,74,0.08);
       --text:      #111827;
       --muted:     #6b7280;
       --border:    #e5e7eb;
     }
-    body { font-family: 'Inter', sans-serif; background: #fff; color: var(--text); }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: #fff; color: var(--text); -webkit-font-smoothing: antialiased; }
 
+    /* NAV */
     nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 18px 48px;
       border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      z-index: 100;
     }
     .nav-logo {
       font-family: 'DM Sans', sans-serif;
@@ -35,17 +42,21 @@
       color: var(--blue);
       text-decoration: none;
     }
-    nav a.back {
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a {
       font-size: 13px;
       color: var(--muted);
       text-decoration: none;
+      transition: color 0.2s;
     }
-    nav a.back:hover { color: var(--text); }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.back { font-size: 13px; }
 
-    .page {
-      max-width: 760px;
+    /* HERO */
+    .hero {
+      max-width: 780px;
       margin: 0 auto;
-      padding: 72px 48px 96px;
+      padding: 80px 48px 72px;
     }
     .eyebrow {
       font-size: 11px;
@@ -53,102 +64,83 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--green);
-      margin-bottom: 16px;
-    }
-    h1 {
-      font-family: 'DM Sans', sans-serif;
-      font-size: clamp(28px, 4vw, 42px);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-      color: #0f172a;
       margin-bottom: 20px;
     }
-    .lead {
+    .hero h1 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(30px, 5vw, 48px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      color: #0f172a;
+    }
+    .hero h1 em { font-style: italic; color: var(--green); }
+    .hero-sub {
       font-size: 17px;
       color: var(--muted);
       line-height: 1.7;
-      margin-bottom: 48px;
-      font-weight: 400;
+      max-width: 540px;
     }
-    .section { margin-bottom: 48px; }
-    .section h2 {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 12px;
-      color: #0f172a;
-    }
-    .section p {
-      font-size: 15px;
-      color: #374151;
-      line-height: 1.75;
-    }
-    .cta {
-      margin-top: 56px;
-      padding-top: 40px;
+
+    /* SECTIONS */
+    section {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 64px 48px;
       border-top: 1px solid var(--border);
     }
-    .cta p {
-      font-size: 15px;
-      color: var(--muted);
-      margin-bottom: 16px;
-    }
-    .cta a {
-      display: inline-block;
-      padding: 12px 28px;
-      background: var(--green);
-      color: #fff;
-      border-radius: 6px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
+    .section-label {
+      font-size: 11px;
       font-weight: 600;
-      text-decoration: none;
-      transition: background 0.2s;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #9ca3af;
+      margin-bottom: 28px;
     }
-    .cta a:hover { background: #15803d; }
 
-    @media (max-width: 768px) {
-      nav { padding: 16px 24px; }
-      .page { padding: 48px 24px 72px; }
+    /* MISSION */
+    .mission-text {
+      font-size: 19px;
+      line-height: 1.75;
+      color: #1f2937;
+      font-weight: 300;
     }
-  </style>
-</head>
-<body>
+    .mission-text em { font-style: italic; color: var(--green); font-weight: 400; }
 
-<nav>
-  <a class="nav-logo" href="/">RKMS Innovation</a>
-  <a class="back" href="/">← Back</a>
-</nav>
-
-<div class="page">
-  <div class="eyebrow">Materials Science</div>
-  <h1>Banana Fiber Research</h1>
-  <p class="lead">
-    Banana plants produce large quantities of fiber-rich pseudostem waste after harvest. We are researching how this material can be processed into high-performance products — from mattresses and acoustic panels to wound care applications.
-  </p>
-
-  <!-- Content sections — fill in with your actual content -->
-  <div class="section">
-    <h2>The opportunity</h2>
-    <p>Content coming soon.</p>
-  </div>
-
-  <div class="section">
-    <h2>Applications</h2>
-    <p>Content coming soon.</p>
-  </div>
-
-  <div class="section">
-    <h2>Research approach</h2>
-    <p>Content coming soon.</p>
-  </div>
-
-  <div class="cta">
-    <p>Interested in collaborating or learning more?</p>
-    <a href="mailto:abhijit.d80@gmail.com">Get in touch</a>
-  </div>
-</div>
-
-</body>
-</html>
+    /* PRODUCTS */
+    .products-grid { display: grid; gap: 20px; }
+    .product-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px 32px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .product-card:hover {
+      border-color: var(--green);
+      box-shadow: 0 4px 20px rgba(22,163,74,0.07);
+    }
+    .product-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      background: var(--green-dim);
+      padding: 4px 10px;
+      border-radius: 3px;
+      margin-bottom: 14px;
+    }
+    .product-card h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #0f172a;
+    }
+    .product-card p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+    .product-status {
+      margin-top: 16px;
+      font-size: 12px;
+     
