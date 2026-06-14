@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RKMS Innovation</title>
+  <!-- v3 -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
   <link rel="icon" type="image/png" href="favicon.png"/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -324,12 +325,12 @@
       <line x1="30" y1="40"  x2="105" y2="100" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="5 3" stroke-opacity="0.7"/>
       <line x1="30" y1="320" x2="105" y2="260" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="5 3" stroke-opacity="0.7"/>
 
-      <!-- Left cluster → Grid Hub -->
+      <!-- Left cluster to Grid Hub -->
       <line x1="105" y1="100" x2="310" y2="90"  stroke="#cbd5e1" stroke-width="1.5"/>
       <line x1="105" y1="100" x2="310" y2="180" stroke="#cbd5e1" stroke-width="1.5"/>
       <line x1="105" y1="260" x2="310" y2="180" stroke="#cbd5e1" stroke-width="1.5"/>
 
-      <!-- Grid Hub → Congestion Zone (blocked) -->
+      <!-- Grid Hub to Congestion Zone (blocked) -->
       <line x1="310" y1="180" x2="510" y2="180" stroke="#cbd5e1" stroke-width="1.5" stroke-opacity="0.5"/>
       <line x1="402" y1="172" x2="414" y2="188" stroke="#ef4444" stroke-width="1.5" stroke-opacity="0.5"/>
       <line x1="414" y1="172" x2="402" y2="188" stroke="#ef4444" stroke-width="1.5" stroke-opacity="0.5"/>
@@ -341,7 +342,7 @@
       <line x1="310" y1="180" x2="510" y2="280" stroke="#0d9488" stroke-width="2" stroke-opacity="0.7"/>
       <line x1="510" y1="280" x2="715" y2="260" stroke="#0d9488" stroke-width="2" stroke-opacity="0.7"/>
 
-      <!-- Congestion → right (residual) -->
+      <!-- Congestion to right (residual) -->
       <line x1="510" y1="180" x2="715" y2="100" stroke="#cbd5e1" stroke-width="1" stroke-opacity="0.4"/>
       <line x1="510" y1="180" x2="715" y2="260" stroke="#cbd5e1" stroke-width="1" stroke-opacity="0.4"/>
 
@@ -458,7 +459,80 @@
         <line x1="10" y1="14" x2="18" y2="24" stroke="#2563eb" stroke-width="1.2"/>
         <line x1="26" y1="14" x2="18" y2="24" stroke="#2563eb" stroke-width="1.2"/>
       </svg>
-      <h3>Energy & Grid</h3>
+      <h3>Energy &amp; Grid</h3>
       <p>Grid-supportive siting analysis for data centers and large flexible loads. We identify where demand absorbs oversupply rather than adding strain.</p>
-      <a onclick="openModal()">Get in touch →</a>
-   
+      <a onclick="openModal()">Get in touch &#x2192;</a>
+    </div>
+
+    <div class="venture-card">
+      <svg class="venture-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="18" cy="18" r="17" stroke="#22c55e" stroke-width="1.5" fill="#f0fdf4"/>
+        <path d="M18 8 C12 12 10 16 12 20 C14 24 22 24 24 20 C26 16 24 12 18 8Z" stroke="#22c55e" stroke-width="1.4" fill="none"/>
+        <line x1="18" y1="8"  x2="18" y2="28" stroke="#22c55e" stroke-width="1.2"/>
+        <line x1="14" y1="16" x2="22" y2="16" stroke="#22c55e" stroke-width="1"/>
+        <line x1="12" y1="20" x2="24" y2="20" stroke="#22c55e" stroke-width="1"/>
+      </svg>
+      <h3>Materials Science</h3>
+      <p>Banana fiber research for mattresses, acoustic panels, and wound care. Turning an overlooked agricultural byproduct into high-performance materials.</p>
+      <a href="/banana-fiber">Learn more &#x2192;</a>
+    </div>
+
+    <div class="venture-card">
+      <svg class="venture-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="18" cy="18" r="17" stroke="#2563eb" stroke-width="1.5" fill="#eff6ff"/>
+        <path d="M9 22 L18 14 L27 22" stroke="#2563eb" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M13 22 L13 27 L23 27 L23 22" stroke="#2563eb" stroke-width="1.3" stroke-linejoin="round"/>
+        <path d="M18 14 L18 10" stroke="#2563eb" stroke-width="1.3"/>
+        <path d="M15 18 L21 18" stroke="#2563eb" stroke-width="1" opacity="0.6"/>
+      </svg>
+      <h3>GradePractice</h3>
+      <p>AI-generated NC EOG &amp; EOC practice tests for grades 3&#x2013;8. Built for North Carolina students who learn by doing, not by waiting for the next test.</p>
+      <a href="https://gradepractice.com" target="_blank">Visit GradePractice &#x2192;</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">RKMS Innovation</div>
+  <a onclick="openModal()" style="cursor:pointer;">Contact</a>
+</footer>
+
+<!-- CONTACT MODAL -->
+<div class="modal-overlay" id="contactModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">&#x00D7;</button>
+    <h2>Get in touch</h2>
+    <p class="modal-sub">Send a message and I'll get back to you.</p>
+    <form onsubmit="handleContact(event)">
+      <input type="text"  id="cName"    placeholder="Your name"    required />
+      <input type="email" id="cEmail"   placeholder="Your email"   required />
+      <textarea           id="cMessage" placeholder="Your message" required></textarea>
+      <button type="submit">Send message</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  function openModal()  { document.getElementById('contactModal').classList.add('open'); }
+  function closeModal() { document.getElementById('contactModal').classList.remove('open'); }
+
+  document.getElementById('contactModal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+
+  function handleContact(e) {
+    e.preventDefault();
+    const name    = document.getElementById('cName').value;
+    const email   = document.getElementById('cEmail').value;
+    const message = document.getElementById('cMessage').value;
+    const subject = encodeURIComponent('Message from ' + name);
+    const body    = encodeURIComponent('From: ' + name + '\nEmail: ' + email + '\n\n' + message);
+    window.location.href = 'mailto:abhijit.d80@gmail.com?subject=' + subject + '&body=' + body;
+    closeModal();
+  }
+</script>
+
+</body>
+</html>
