@@ -11,7 +11,6 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --blue:      #2563eb;
-      --blue-dark: #1d4ed8;
       --green:     #16a34a;
       --green-dim: rgba(22,163,74,0.08);
       --text:      #111827;
@@ -21,7 +20,6 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; background: #fff; color: var(--text); -webkit-font-smoothing: antialiased; }
 
-    /* NAV */
     nav {
       display: flex;
       align-items: center;
@@ -50,9 +48,7 @@
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--text); }
-    .nav-links a.back { font-size: 13px; }
 
-    /* HERO */
     .hero {
       max-width: 780px;
       margin: 0 auto;
@@ -83,7 +79,6 @@
       max-width: 540px;
     }
 
-    /* SECTIONS */
     section {
       max-width: 780px;
       margin: 0 auto;
@@ -99,7 +94,6 @@
       margin-bottom: 28px;
     }
 
-    /* MISSION */
     .mission-text {
       font-size: 19px;
       line-height: 1.75;
@@ -108,7 +102,6 @@
     }
     .mission-text em { font-style: italic; color: var(--green); font-weight: 400; }
 
-    /* PRODUCTS */
     .products-grid { display: grid; gap: 20px; }
     .product-card {
       border: 1px solid var(--border);
@@ -143,4 +136,213 @@
     .product-status {
       margin-top: 16px;
       font-size: 12px;
-     
+      color: #9ca3af;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .status-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      opacity: 0.6;
+      flex-shrink: 0;
+    }
+
+    .why-text { font-size: 15px; color: #374151; line-height: 1.85; max-width: 600px; }
+    .why-text p { margin-bottom: 20px; }
+    .why-text p:last-child { margin-bottom: 0; }
+    .why-text strong { color: #0f172a; font-weight: 600; }
+
+    #contact h2 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #0f172a;
+    }
+    #contact > p { font-size: 14px; color: var(--muted); margin-bottom: 32px; }
+    form { display: grid; gap: 14px; max-width: 500px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    label { display: block; font-size: 11px; font-weight: 500; color: var(--muted); margin-bottom: 5px; letter-spacing: 0.04em; }
+    input, textarea, select {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+      background: #fff;
+    }
+    input:focus, textarea:focus, select:focus { border-color: var(--green); }
+    textarea { min-height: 120px; resize: vertical; }
+    .submit-btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background: var(--green);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      width: fit-content;
+    }
+    .submit-btn:hover { background: #15803d; }
+    #form-success {
+      display: none;
+      padding: 14px 18px;
+      background: var(--green-dim);
+      border: 1px solid var(--green);
+      border-radius: 6px;
+      color: var(--green);
+      font-size: 14px;
+      max-width: 500px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 48px;
+      max-width: 780px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    footer p { font-size: 12px; color: #9ca3af; }
+    footer a { font-size: 12px; color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+
+    @media (max-width: 640px) {
+      nav { padding: 16px 24px; }
+      .hero, section, footer { padding-left: 24px; padding-right: 24px; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">RKMS Innovation</a>
+  <div class="nav-links">
+    <a href="#products">Products</a>
+    <a href="#why">Why this</a>
+    <a href="#contact">Contact</a>
+    <a href="/">&#x2190; Home</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <p class="eyebrow">Material Innovation &middot; Banana Fiber</p>
+  <h1>Built from what<br/>nature already <em>makes.</em></h1>
+  <p class="hero-sub">We're developing products from banana plant fiber &mdash; a natural, abundant material that most of the world discards. The goal is simple: useful things that don't cost the earth.</p>
+</div>
+
+<section id="mission">
+  <p class="section-label">What we're doing</p>
+  <p class="mission-text">
+    Banana plants produce enormous amounts of fiber each harvest. Almost none of it gets used. We think that's a waste &mdash; and an opportunity.<br/><br/>
+    Our work is early. We're running R&amp;D in India, working with academic and research partners, and building toward products in three areas. We're not in market yet. But we're building toward something <em>worth bringing to market.</em>
+  </p>
+</section>
+
+<section id="products">
+  <p class="section-label">What we build</p>
+  <div class="products-grid">
+
+    <div class="product-card">
+      <span class="product-tag">Sleep &amp; Comfort</span>
+      <h3>Natural Fiber Mattresses</h3>
+      <p>Mattresses made with banana fiber are breathable, naturally temperature-regulating, and biodegradable. We're prototyping in India &mdash; starting with the pet market, where the regulatory bar is lower, and moving toward human use as feasibility is confirmed.</p>
+      <div class="product-status"><span class="status-dot"></span> Prototype in development</div>
+    </div>
+
+    <div class="product-card">
+      <span class="product-tag">Acoustic</span>
+      <h3>Acoustic Panels</h3>
+      <p>Sound absorption panels built from natural banana fiber. We're exploring this through university research partnerships &mdash; pursuing formal acoustic testing before any commercial entry. The material properties are promising. The science comes first.</p>
+      <div class="product-status"><span class="status-dot"></span> Research phase &middot; IIT collaboration</div>
+    </div>
+
+    <div class="product-card">
+      <span class="product-tag">Biomedical</span>
+      <h3>Wound Care Materials</h3>
+      <p>Banana fiber has natural properties that may make it well-suited for wound dressings &mdash; breathable, biocompatible, and derived from a renewable source. This is early-stage research. We're working with lab partners in India and exploring a path through veterinary use toward clinical applications.</p>
+      <div class="product-status"><span class="status-dot"></span> Lab research &middot; Clinical path TBD</div>
+    </div>
+
+  </div>
+</section>
+
+<section id="why">
+  <p class="section-label">Why banana fiber</p>
+  <div class="why-text">
+    <p><strong>It's already there.</strong> India produces hundreds of millions of banana plants each year. After harvest, the trunk and stem &mdash; which contain long, strong, natural fiber &mdash; are typically discarded or burned.</p>
+    <p><strong>It's not synthetic.</strong> No petroleum. No chemical binders. Just a plant that grows in the ground and replenishes itself.</p>
+    <p><strong>The applications are real.</strong> This isn't novelty. Banana fiber has been used in textiles for centuries. What's new is applying it to modern product categories &mdash; and doing the science to back it up.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <p class="section-label">Get in touch</p>
+  <h2>Interested? Let's talk.</h2>
+  <p>Whether you're a researcher, a potential partner, or just curious &mdash; reach out. We're early, and we're open.</p>
+
+  <form id="contact-form" onsubmit="handleSubmit(event)">
+    <div class="form-row">
+      <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Your name" required />
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="you@example.com" required />
+      </div>
+    </div>
+    <div>
+      <label for="interest">Area of interest</label>
+      <select id="interest">
+        <option value="">Select one (optional)</option>
+        <option value="mattress">Banana fiber mattresses</option>
+        <option value="acoustic">Acoustic panels</option>
+        <option value="wound">Wound care materials</option>
+        <option value="partnership">Research or supply partnership</option>
+        <option value="other">Something else</option>
+      </select>
+    </div>
+    <div>
+      <label for="message">Message</label>
+      <textarea id="message" placeholder="Tell us what's on your mind..." required></textarea>
+    </div>
+    <button type="submit" class="submit-btn">Send message &#x2192;</button>
+  </form>
+  <div id="form-success">Message sent. We'll be in touch.</div>
+</section>
+
+<footer>
+  <p>&#x00A9; 2026 RKMS Innovation</p>
+  <a href="/">rkmsinnovation.com &#x2192;</a>
+</footer>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    var name     = document.getElementById('name').value;
+    var email    = document.getElementById('email').value;
+    var interest = document.getElementById('interest').value;
+    var message  = document.getElementById('message').value;
+    var subject  = encodeURIComponent('Banana Fiber Inquiry - ' + (interest || 'General'));
+    var body     = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nInterest: ' + (interest || 'Not specified') + '\n\n' + message);
+    window.location.href = 'mailto:abhijit.d80@gmail.com?subject=' + subject + '&body=' + body;
+    document.getElementById('contact-form').style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
