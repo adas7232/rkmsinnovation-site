@@ -293,7 +293,7 @@
   <div class="nav-logo">RKMS Innovation</div>
   <div class="nav-links">
     <a href="#ventures">Ventures</a>
-    <a href="javascript:void(0)" onclick="openModal()">Contact</a>
+    <a href="mailto:abhijit.d80@gmail.com">Contact</a>
   </div>
 </nav>
 
@@ -449,7 +449,7 @@
   <div class="ventures-label">What we build</div>
   <div class="venture-grid">
 
-    <div class="venture-card" role="button" tabindex="0" onclick="openModal()" onkeydown="if(event.key==='Enter')openModal()">
+    <div class="venture-card" onclick="window.location.href='mailto:abhijit.d80@gmail.com'">
       <svg class="venture-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="18" cy="18" r="17" stroke="#2563eb" stroke-width="1.5" fill="#eff6ff"/>
         <circle cx="10" cy="14" r="2.5" fill="#2563eb"/>
@@ -461,7 +461,7 @@
       </svg>
       <h3>Energy &amp; Grid</h3>
       <p>Grid-supportive siting analysis for data centers and large flexible loads. We identify where demand absorbs oversupply rather than adding strain.</p>
-      <a href="javascript:void(0)" onclick="event.stopPropagation();openModal()">Get in touch &#x2192;</a>
+      <a href="mailto:abhijit.d80@gmail.com" onclick="event.stopPropagation()">Get in touch &#x2192;</a>
     </div>
 
     <div class="venture-card" onclick="window.location.href='/banana-fiber.html'">
@@ -496,41 +496,10 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">RKMS Innovation</div>
-  <a href="javascript:void(0)" onclick="openModal()">Contact</a>
+  <a href="mailto:abhijit.d80@gmail.com">Contact</a>
 </footer>
 
-<!-- CONTACT MODAL -->
-<div class="modal-overlay" id="contactModal">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal()">&#x00D7;</button>
-    <h2>Get in touch</h2>
-    <p class="modal-sub">Send a message and I'll get back to you.</p>
-    <form onsubmit="handleContact(event)">
-      <input type="text"  id="cName"    placeholder="Your name"    required />
-      <input type="email" id="cEmail"   placeholder="Your email"   required />
-      <textarea           id="cMessage" placeholder="Your message" required></textarea>
-      <button type="submit">Send message</button>
-    </form>
-  </div>
-</div>
 
-<script>
-  var modal = document.getElementById('contactModal');
-
-  function openModal() {
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-  }
-  function closeModal() {
-    modal.style.display = 'none';
-    document.body.style.overflow = '';
-  }
-
-  modal.addEventListener('click', function(e) {
-    if (e.target === modal) closeModal();
-  });
-
-  function handleContact(e) {
-    e.preventDefault();
-    const name    = document.getElementById('cName').value;
-    const email
+</body>
+</html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
