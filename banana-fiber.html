@@ -113,6 +113,7 @@
       border-color: var(--green);
       box-shadow: 0 4px 20px rgba(22,163,74,0.07);
     }
+    .product-icon { width: 40px; height: 40px; margin-bottom: 18px; }
     .product-tag {
       display: inline-block;
       font-size: 10px;
@@ -256,6 +257,15 @@
   <div class="products-grid">
 
     <div class="product-card">
+      <!-- Mattress icon: layered cross-section -->
+      <svg class="product-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4" y="10" width="32" height="6" rx="2" stroke="#16a34a" stroke-width="1.5" fill="#f0fdf4"/>
+        <rect x="4" y="16" width="32" height="10" rx="1" stroke="#16a34a" stroke-width="1.5" fill="#dcfce7"/>
+        <rect x="4" y="26" width="32" height="4" rx="1" stroke="#16a34a" stroke-width="1.5" fill="#f0fdf4"/>
+        <line x1="10" y1="16" x2="10" y2="26" stroke="#16a34a" stroke-width="1" stroke-opacity="0.4"/>
+        <line x1="20" y1="16" x2="20" y2="26" stroke="#16a34a" stroke-width="1" stroke-opacity="0.4"/>
+        <line x1="30" y1="16" x2="30" y2="26" stroke="#16a34a" stroke-width="1" stroke-opacity="0.4"/>
+      </svg>
       <span class="product-tag">Sleep &amp; Comfort</span>
       <h3>Natural Fiber Mattresses</h3>
       <p>Mattresses made with banana fiber are breathable, naturally temperature-regulating, and biodegradable. We're prototyping in India &mdash; starting with the pet market, where the regulatory bar is lower, and moving toward human use as feasibility is confirmed.</p>
@@ -263,6 +273,13 @@
     </div>
 
     <div class="product-card">
+      <!-- Acoustic icon: sound waves hitting a panel -->
+      <svg class="product-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="28" y="8" width="6" height="24" rx="2" stroke="#16a34a" stroke-width="1.5" fill="#f0fdf4"/>
+        <path d="M22 14 Q18 20 22 26" stroke="#16a34a" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <path d="M16 11 Q10 20 16 29" stroke="#16a34a" stroke-width="1.5" stroke-linecap="round" fill="none" stroke-opacity="0.6"/>
+        <path d="M10 8  Q2  20 10 32"  stroke="#16a34a" stroke-width="1.5" stroke-linecap="round" fill="none" stroke-opacity="0.3"/>
+      </svg>
       <span class="product-tag">Acoustic</span>
       <h3>Acoustic Panels</h3>
       <p>Sound absorption panels built from natural banana fiber. We're exploring this through university research partnerships &mdash; pursuing formal acoustic testing before any commercial entry. The material properties are promising. The science comes first.</p>
@@ -270,6 +287,15 @@
     </div>
 
     <div class="product-card">
+      <!-- Wound care icon: leaf with a cross -->
+      <svg class="product-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 6 C10 10 7 18 10 24 C13 30 27 30 30 24 C33 18 30 10 20 6Z" stroke="#16a34a" stroke-width="1.5" fill="#f0fdf4"/>
+        <line x1="20" y1="6" x2="20" y2="32" stroke="#16a34a" stroke-width="1" stroke-opacity="0.5"/>
+        <line x1="13" y1="16" x2="27" y2="16" stroke="#16a34a" stroke-width="1" stroke-opacity="0.5"/>
+        <rect x="16" y="20" width="8" height="8" rx="1.5" fill="#dcfce7" stroke="#16a34a" stroke-width="1.2"/>
+        <line x1="20" y1="22" x2="20" y2="26" stroke="#16a34a" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="18" y1="24" x2="22" y2="24" stroke="#16a34a" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
       <span class="product-tag">Biomedical</span>
       <h3>Wound Care Materials</h3>
       <p>Banana fiber has natural properties that may make it well-suited for wound dressings &mdash; breathable, biocompatible, and derived from a renewable source. This is early-stage research. We're working with lab partners in India and exploring a path through veterinary use toward clinical applications.</p>
@@ -288,62 +314,4 @@
   </div>
 </section>
 
-<section id="contact">
-  <p class="section-label">Get in touch</p>
-  <h2>Interested? Let's talk.</h2>
-  <p>Whether you're a researcher, a potential partner, or just curious &mdash; reach out. We're early, and we're open.</p>
-
-  <form id="contact-form" onsubmit="handleSubmit(event)">
-    <div class="form-row">
-      <div>
-        <label for="name">Name</label>
-        <input type="text" id="name" placeholder="Your name" required />
-      </div>
-      <div>
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="you@example.com" required />
-      </div>
-    </div>
-    <div>
-      <label for="interest">Area of interest</label>
-      <select id="interest">
-        <option value="">Select one (optional)</option>
-        <option value="mattress">Banana fiber mattresses</option>
-        <option value="acoustic">Acoustic panels</option>
-        <option value="wound">Wound care materials</option>
-        <option value="partnership">Research or supply partnership</option>
-        <option value="other">Something else</option>
-      </select>
-    </div>
-    <div>
-      <label for="message">Message</label>
-      <textarea id="message" placeholder="Tell us what's on your mind..." required></textarea>
-    </div>
-    <button type="submit" class="submit-btn">Send message &#x2192;</button>
-  </form>
-  <div id="form-success">Message sent. We'll be in touch.</div>
-</section>
-
-<footer>
-  <p>&#x00A9; 2026 RKMS Innovation</p>
-  <a href="/">rkmsinnovation.com &#x2192;</a>
-</footer>
-
-<script>
-  function handleSubmit(e) {
-    e.preventDefault();
-    var name     = document.getElementById('name').value;
-    var email    = document.getElementById('email').value;
-    var interest = document.getElementById('interest').value;
-    var message  = document.getElementById('message').value;
-    var subject  = encodeURIComponent('Banana Fiber Inquiry - ' + (interest || 'General'));
-    var body     = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nInterest: ' + (interest || 'Not specified') + '\n\n' + message);
-    window.location.href = 'mailto:abhijit.d80@gmail.com?subject=' + subject + '&body=' + body;
-    document.getElementById('contact-form').style.display = 'none';
-    document.getElementById('form-success').style.display = 'block';
-  }
-</script>
-
-</body>
-</html>
-                                                
+<section id="contac
