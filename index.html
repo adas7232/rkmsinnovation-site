@@ -209,13 +209,12 @@
     .modal-overlay {
       display: none;
       position: fixed;
-      inset: 0;
+      top: 0; left: 0; right: 0; bottom: 0;
       background: rgba(15,23,42,0.5);
       z-index: 200;
       align-items: center;
       justify-content: center;
     }
-    .modal-overlay.open { display: flex; }
     .modal {
       background: #fff;
       border-radius: 10px;
@@ -450,7 +449,7 @@
   <div class="ventures-label">What we build</div>
   <div class="venture-grid">
 
-    <div class="venture-card" onclick="openModal()">
+    <div class="venture-card" role="button" tabindex="0" onclick="openModal()" onkeydown="if(event.key==='Enter')openModal()">
       <svg class="venture-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="18" cy="18" r="17" stroke="#2563eb" stroke-width="1.5" fill="#eff6ff"/>
         <circle cx="10" cy="14" r="2.5" fill="#2563eb"/>
@@ -516,15 +515,22 @@
 </div>
 
 <script>
-  function openModal()  { document.getElementById('contactModal').classList.add('open'); }
-  function closeModal() { document.getElementById('contactModal').classList.remove('open'); }
+  var modal = document.getElementById('contactModal');
 
-  document.getElementById('contactModal').addEventListener('click', function(e) {
-    if (e.target === this) closeModal();
+  function openModal() {
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) closeModal();
   });
 
   function handleContact(e) {
     e.preventDefault();
     const name    = document.getElementById('cName').value;
-    const email   = document.getElementById('cEmail').value;
-    const message = document.getElementById('cMessage').value;
+    const email
