@@ -113,6 +113,29 @@
       background: var(--blue);
       transform: scale(1.35);
     }
+    .slide-nav {
+      position: absolute;
+      top: 46%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.88);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s;
+      z-index: 10;
+      padding: 0;
+    }
+    .slide-nav:hover {
+      background: #fff;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+    .slide-nav.prev { left: -16px; }
+    .slide-nav.next { right: -16px; }
 
     .hero-text {
       text-align: center;
@@ -331,6 +354,12 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-slideshow">
+    <button class="slide-nav prev" aria-label="Previous" onclick="goTo(current-1)">
+      <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M8 2L2 8L8 14" stroke="#6b7280" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="slide-nav next" aria-label="Next" onclick="goTo(current+1)">
+      <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M2 2L8 8L2 14" stroke="#6b7280" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
     <div class="slideshow-track">
 
       <!-- SLIDE 1: RKMS Energy -->
@@ -471,45 +500,43 @@
           <ellipse cx="230" cy="180" rx="190" ry="130" fill="url(#mg1)" />
           <ellipse cx="590" cy="180" rx="160" ry="110" fill="url(#mg2)" />
 
-          <!-- Banana plant – proper wide-leaf vector -->
-          <!-- Back leaves (behind trunk) -->
-          <!-- Upper-left back leaf -->
-          <path d="M 88,150 C 62,92 28,40 2,18 C 28,52 60,108 88,150 Z" fill="#bbf7d0" fill-opacity="0.7" stroke="#22c55e" stroke-width="1.2"/>
-          <line x1="88" y1="150" x2="2" y2="18" stroke="#15803d" stroke-width="1.2" stroke-opacity="0.6"/>
-          <!-- Upper-right back leaf -->
-          <path d="M 92,150 C 118,92 152,40 178,18 C 152,52 120,108 92,150 Z" fill="#bbf7d0" fill-opacity="0.7" stroke="#22c55e" stroke-width="1.2"/>
-          <line x1="92" y1="150" x2="178" y2="18" stroke="#15803d" stroke-width="1.2" stroke-opacity="0.6"/>
+          <!-- Banana plant – wide filled leaves -->
+          <!-- Back leaves (lower z-order) -->
+          <!-- Back upper-left -->
+          <path d="M 90,152 C 112,108 66,22 8,18 C -4,22 42,142 90,152 Z" fill="#bbf7d0" fill-opacity="0.75" stroke="#22c55e" stroke-width="1.2"/>
+          <line x1="90" y1="152" x2="8" y2="18" stroke="#15803d" stroke-width="1.3" stroke-opacity="0.55"/>
+          <!-- Back upper-right -->
+          <path d="M 90,152 C 68,108 114,22 172,18 C 184,22 138,142 90,152 Z" fill="#bbf7d0" fill-opacity="0.75" stroke="#22c55e" stroke-width="1.2"/>
+          <line x1="90" y1="152" x2="172" y2="18" stroke="#15803d" stroke-width="1.3" stroke-opacity="0.55"/>
 
-          <!-- Pseudostem (trunk) -->
-          <path d="M 78,312 C 76,242 78,172 83,150 L 97,150 C 102,172 104,242 102,312 Z" fill="#dcfce7" stroke="#22c55e" stroke-width="1.5"/>
-          <!-- Leaf scar rings -->
-          <path d="M 78,220 Q 90,217 102,220" fill="none" stroke="#22c55e" stroke-width="0.8" stroke-opacity="0.4"/>
-          <path d="M 78,250 Q 90,247 102,250" fill="none" stroke="#22c55e" stroke-width="0.8" stroke-opacity="0.4"/>
-          <path d="M 79,280 Q 90,277 101,280" fill="none" stroke="#22c55e" stroke-width="0.8" stroke-opacity="0.4"/>
+          <!-- Pseudostem -->
+          <path d="M 79,314 C 77,244 79,172 84,152 L 96,152 C 101,172 103,244 101,314 Z" fill="#dcfce7" stroke="#22c55e" stroke-width="1.5"/>
+          <path d="M 79,222 Q 90,219 101,222" fill="none" stroke="#22c55e" stroke-width="0.8" stroke-opacity="0.4"/>
+          <path d="M 79,252 Q 90,249 101,252" fill="none" stroke="#22c55e" stroke-width="0.8" stroke-opacity="0.4"/>
+          <path d="M 79,282 Q 90,279 101,282" fill="none" stroke="#22c55e" stroke-width="0.8" stroke-opacity="0.4"/>
 
-          <!-- Front leaves (in front of trunk) -->
-          <!-- Far-left leaf, arching down -->
-          <path d="M 84,160 C 58,155 24,158 -4,170 C 22,160 56,168 84,160 Z" fill="#dcfce7" fill-opacity="0.95" stroke="#22c55e" stroke-width="1.4"/>
-          <line x1="84" y1="160" x2="-4" y2="170" stroke="#15803d" stroke-width="1.2" stroke-opacity="0.65"/>
-          <!-- Far-right leaf, arching down -->
-          <path d="M 96,160 C 122,155 158,158 186,170 C 160,160 124,168 96,160 Z" fill="#dcfce7" fill-opacity="0.95" stroke="#22c55e" stroke-width="1.4"/>
-          <line x1="96" y1="160" x2="186" y2="170" stroke="#15803d" stroke-width="1.2" stroke-opacity="0.65"/>
-          <!-- Upper-left front leaf (wider, drooping) -->
-          <path d="M 86,152 C 55,118 22,72 4,38 C 38,78 64,124 86,152 Z" fill="#dcfce7" fill-opacity="0.9" stroke="#22c55e" stroke-width="1.4"/>
-          <line x1="86" y1="152" x2="4" y2="38" stroke="#15803d" stroke-width="1.2" stroke-opacity="0.7"/>
-          <!-- Upper-right front leaf (wider, drooping) -->
-          <path d="M 94,152 C 125,118 158,72 176,38 C 142,78 116,124 94,152 Z" fill="#dcfce7" fill-opacity="0.9" stroke="#22c55e" stroke-width="1.4"/>
-          <line x1="94" y1="152" x2="176" y2="38" stroke="#15803d" stroke-width="1.2" stroke-opacity="0.7"/>
+          <!-- Front upper-left leaf (broad, drooping) -->
+          <path d="M 88,152 C 112,104 60,20 4,16 C -8,22 38,144 88,152 Z" fill="#dcfce7" fill-opacity="0.95" stroke="#22c55e" stroke-width="1.4"/>
+          <line x1="88" y1="152" x2="4" y2="16" stroke="#15803d" stroke-width="1.3" stroke-opacity="0.65"/>
+          <!-- Front upper-right leaf -->
+          <path d="M 92,152 C 68,104 120,20 176,16 C 188,22 142,144 92,152 Z" fill="#dcfce7" fill-opacity="0.95" stroke="#22c55e" stroke-width="1.4"/>
+          <line x1="92" y1="152" x2="176" y2="16" stroke="#15803d" stroke-width="1.3" stroke-opacity="0.65"/>
+          <!-- Left horizontal leaf -->
+          <path d="M 84,160 C 78,136 10,130 -10,152 C 10,172 78,182 84,160 Z" fill="#dcfce7" fill-opacity="0.92" stroke="#22c55e" stroke-width="1.4"/>
+          <line x1="84" y1="160" x2="-10" y2="152" stroke="#15803d" stroke-width="1.2" stroke-opacity="0.6"/>
+          <!-- Right horizontal leaf -->
+          <path d="M 96,160 C 102,136 170,130 190,152 C 170,172 102,182 96,160 Z" fill="#dcfce7" fill-opacity="0.92" stroke="#22c55e" stroke-width="1.4"/>
+          <line x1="96" y1="160" x2="190" y2="152" stroke="#15803d" stroke-width="1.2" stroke-opacity="0.6"/>
           <!-- Lower-left leaf -->
-          <path d="M 82,170 C 50,192 20,225 4,260 C 28,228 58,200 82,170 Z" fill="#dcfce7" fill-opacity="0.85" stroke="#22c55e" stroke-width="1.3"/>
-          <line x1="82" y1="170" x2="4" y2="260" stroke="#15803d" stroke-width="1.1" stroke-opacity="0.6"/>
+          <path d="M 84,168 C 52,168 8,200 2,248 C 28,208 60,188 84,168 Z" fill="#dcfce7" fill-opacity="0.85" stroke="#22c55e" stroke-width="1.3"/>
+          <line x1="84" y1="168" x2="2" y2="248" stroke="#15803d" stroke-width="1.1" stroke-opacity="0.55"/>
           <!-- Lower-right leaf -->
-          <path d="M 98,170 C 130,192 160,225 176,260 C 152,228 122,200 98,170 Z" fill="#dcfce7" fill-opacity="0.85" stroke="#22c55e" stroke-width="1.3"/>
-          <line x1="98" y1="170" x2="176" y2="260" stroke="#15803d" stroke-width="1.1" stroke-opacity="0.6"/>
+          <path d="M 96,168 C 128,168 172,200 178,248 C 152,208 120,188 96,168 Z" fill="#dcfce7" fill-opacity="0.85" stroke="#22c55e" stroke-width="1.3"/>
+          <line x1="96" y1="168" x2="178" y2="248" stroke="#15803d" stroke-width="1.1" stroke-opacity="0.55"/>
 
           <!-- Ground -->
-          <ellipse cx="90" cy="315" rx="40" ry="8" fill="#dcfce7" stroke="#22c55e" stroke-width="1" fill-opacity="0.7"/>
-          <text x="90" y="338" font-size="9" fill="#15803d" font-family="Inter,sans-serif" text-anchor="middle">Banana plant</text>
+          <ellipse cx="90" cy="317" rx="42" ry="8" fill="#dcfce7" stroke="#22c55e" stroke-width="1" fill-opacity="0.7"/>
+          <text x="90" y="340" font-size="9" fill="#15803d" font-family="Inter,sans-serif" text-anchor="middle">Banana plant</text>
 
           <!-- Fiber strands (wavy parallel lines) -->
           <path d="M 138 118 C 250 108 340 132 440 118 C 540 104 620 128 688 118" fill="none" stroke="#22c55e" stroke-width="1.6" stroke-opacity="0.55" stroke-linecap="round"/>
