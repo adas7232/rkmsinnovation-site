@@ -330,6 +330,122 @@
     }
     .modal button[type="submit"]:hover { background: var(--blue-dark); }
 
+    /* ── EDUCATION QUIZ SLIDE ── */
+    .edu-container {
+      aspect-ratio: 820 / 360;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 16px 20px;
+      background: #f8faff;
+    }
+    .edu-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 20px 24px 16px;
+      width: 100%;
+      max-width: 560px;
+      box-shadow: 0 4px 24px rgba(37,99,235,0.08);
+    }
+    .edu-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .edu-pill {
+      background: #eff6ff;
+      color: #2563eb;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+    .edu-score {
+      font-size: 11px;
+      color: #6b7280;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      padding: 3px 10px;
+      border-radius: 6px;
+    }
+    .edu-score strong { color: #15803d; }
+    .edu-question {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+    .edu-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .edu-opt {
+      padding: 9px 14px;
+      border: 1.5px solid #e5e7eb;
+      border-radius: 7px;
+      background: #f9fafb;
+      font-size: 13px;
+      font-family: 'Inter', sans-serif;
+      color: #6b7280;
+      cursor: default;
+      text-align: left;
+      transition: border-color 0.3s, background 0.3s, color 0.3s;
+    }
+    .edu-opt.selected  { border-color: #2563eb; background: #eff6ff; color: #1d4ed8; }
+    .edu-opt.correct   { border-color: #22c55e; background: #f0fdf4; color: #15803d; font-weight: 600; }
+    .edu-opt.wrong     { border-color: #ef4444; background: #fef2f2; color: #b91c1c; }
+    .edu-submit {
+      width: 100%;
+      padding: 9px;
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      cursor: default;
+      transition: background 0.2s, transform 0.15s;
+      margin-bottom: 10px;
+    }
+    .edu-submit.clicked { transform: scale(0.97); background: #1d4ed8; }
+    .edu-feedback {
+      font-size: 12px;
+      line-height: 1.55;
+      padding: 0 12px;
+      border-radius: 7px;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.3s ease;
+    }
+    .edu-feedback.show {
+      max-height: 60px;
+      opacity: 1;
+      padding: 9px 12px;
+      margin-bottom: 8px;
+    }
+    .edu-feedback.correct { background: #f0fdf4; border: 1px solid #bbf7d0; color: #15803d; }
+    .edu-feedback.wrong   { background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; }
+    .edu-progress-label { font-size: 10px; color: #9ca3af; margin-bottom: 4px; }
+    .edu-progress-bar   { height: 5px; background: #e5e7eb; border-radius: 3px; overflow: hidden; }
+    .edu-progress-fill  { height: 100%; width: 80%; background: #2563eb; border-radius: 3px; }
+    .edu-ai-label {
+      font-size: 10px;
+      color: #9ca3af;
+      text-align: center;
+      margin-top: 10px;
+      letter-spacing: 0.02em;
+    }
+
     @media (max-width: 768px) {
       nav { padding: 16px 24px; }
       .hero { padding: 90px 24px 40px; min-height: 85vh; }
@@ -597,74 +713,28 @@
         </svg>
       </div>
 
-      <!-- SLIDE 3: GradePractice -->
-      <div class="slide">
-        <svg viewBox="0 0 820 360" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <radialGradient id="edg" cx="50%" cy="50%" r="60%">
-              <stop offset="0%" stop-color="#2563eb" stop-opacity="0.09"/>
-              <stop offset="100%" stop-color="#2563eb" stop-opacity="0"/>
-            </radialGradient>
-            <filter id="edsh" x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#2563eb" flood-opacity="0.1"/>
-            </filter>
-            <filter id="edsh2" x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="0" dy="1" stdDeviation="3" flood-color="#22c55e" flood-opacity="0.2"/>
-            </filter>
-          </defs>
-
-          <ellipse cx="410" cy="180" rx="340" ry="190" fill="url(#edg)" />
-
-          <!-- Quiz card -->
-          <rect x="130" y="34" width="560" height="292" rx="10" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5" filter="url(#edsh)"/>
-
-          <!-- Subject pill -->
-          <rect x="152" y="54" width="84" height="22" rx="11" fill="#eff6ff"/>
-          <text x="194" y="69" font-size="9" fill="#2563eb" font-family="Inter,sans-serif" text-anchor="middle" font-weight="600">MATH · G5</text>
-
-          <!-- Score badge -->
-          <rect x="584" y="50" width="88" height="30" rx="6" fill="#f0fdf4" stroke="#22c55e" stroke-width="1" filter="url(#edsh2)"/>
-          <text x="628" y="61" font-size="7.5" fill="#15803d" font-family="Inter,sans-serif" text-anchor="middle" font-weight="500">Score</text>
-          <text x="628" y="74" font-size="12" fill="#15803d" font-family="Inter,sans-serif" text-anchor="middle" font-weight="700">7 / 10</text>
-
-          <!-- Question -->
-          <text x="410" y="108" font-size="14" fill="#111827" font-family="DM Sans,sans-serif" text-anchor="middle" font-weight="600">What is 3/4 + 1/8?</text>
-
-          <!-- Option A — correct / selected -->
-          <rect x="152" y="126" width="224" height="46" rx="7" fill="#eff6ff" stroke="#2563eb" stroke-width="1.8"/>
-          <circle cx="176" cy="149" r="10" fill="#2563eb"/>
-          <text x="176" y="153.5" font-size="9.5" fill="#fff" font-family="Inter,sans-serif" text-anchor="middle" font-weight="700">A</text>
-          <text x="286" y="154" font-size="13" fill="#1d4ed8" font-family="Inter,sans-serif" text-anchor="middle" font-weight="500">7/8</text>
-          <circle cx="364" cy="149" r="11" fill="#22c55e" filter="url(#edsh2)"/>
-          <path d="M 358 149 L 362 153 L 370 144" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-
-          <!-- Option B -->
-          <rect x="444" y="126" width="224" height="46" rx="7" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
-          <circle cx="468" cy="149" r="10" fill="#e5e7eb"/>
-          <text x="468" y="153.5" font-size="9.5" fill="#6b7280" font-family="Inter,sans-serif" text-anchor="middle" font-weight="700">B</text>
-          <text x="570" y="154" font-size="13" fill="#9ca3af" font-family="Inter,sans-serif" text-anchor="middle">4/12</text>
-
-          <!-- Option C -->
-          <rect x="152" y="184" width="224" height="46" rx="7" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
-          <circle cx="176" cy="207" r="10" fill="#e5e7eb"/>
-          <text x="176" y="211.5" font-size="9.5" fill="#6b7280" font-family="Inter,sans-serif" text-anchor="middle" font-weight="700">C</text>
-          <text x="286" y="212" font-size="13" fill="#9ca3af" font-family="Inter,sans-serif" text-anchor="middle">1/2</text>
-
-          <!-- Option D -->
-          <rect x="444" y="184" width="224" height="46" rx="7" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
-          <circle cx="468" cy="207" r="10" fill="#e5e7eb"/>
-          <text x="468" y="211.5" font-size="9.5" fill="#6b7280" font-family="Inter,sans-serif" text-anchor="middle" font-weight="700">D</text>
-          <text x="570" y="212" font-size="13" fill="#9ca3af" font-family="Inter,sans-serif" text-anchor="middle">3/8</text>
-
-          <!-- Progress bar -->
-          <text x="152" y="254" font-size="9" fill="#9ca3af" font-family="Inter,sans-serif">Question 8 of 10</text>
-          <rect x="152" y="260" width="516" height="6" rx="3" fill="#e5e7eb"/>
-          <rect x="152" y="260" width="413" height="6" rx="3" fill="#2563eb"/>
-
-          <!-- Explanation strip -->
-          <rect x="152" y="280" width="516" height="30" rx="5" fill="#f8faff"/>
-          <text x="410" y="299" font-size="10" fill="#6b7280" font-family="Inter,sans-serif" text-anchor="middle">3/4 = 6/8, so 6/8 + 1/8 = 7/8 ✓  —  AI-generated NC EOG practice</text>
-        </svg>
+      <!-- SLIDE 3: GradePractice (animated) -->
+      <div class="slide" id="slide-edu">
+        <div class="edu-container">
+          <div class="edu-card">
+            <div class="edu-header">
+              <span class="edu-pill">MATH · G5</span>
+              <span class="edu-score">Score: <strong>7 / 10</strong></span>
+            </div>
+            <div class="edu-question">What is ¾ + ⅛?</div>
+            <div class="edu-options">
+              <button class="edu-opt" id="edu-opt-a">A &nbsp;&nbsp; 7/8</button>
+              <button class="edu-opt" id="edu-opt-b">B &nbsp;&nbsp; 4/12</button>
+              <button class="edu-opt" id="edu-opt-c">C &nbsp;&nbsp; 1/2</button>
+              <button class="edu-opt" id="edu-opt-d">D &nbsp;&nbsp; 3/8</button>
+            </div>
+            <button class="edu-submit" id="edu-submit">Check Answer</button>
+            <div class="edu-feedback" id="edu-feedback"></div>
+            <div class="edu-progress-label">Question 8 of 10</div>
+            <div class="edu-progress-bar"><div class="edu-progress-fill"></div></div>
+            <div class="edu-ai-label">AI-generated &nbsp;·&nbsp; NC EOG Practice &nbsp;·&nbsp; Grades 3–8</div>
+          </div>
+        </div>
       </div>
 
     </div><!-- /slideshow-track -->
@@ -801,6 +871,71 @@
   slideshow.addEventListener('mouseleave', () => { paused = false; });
 
   setInterval(() => { if (!paused) goTo(current + 1); }, 5000);
+
+  // ── Education slide animation ──
+  let eduTimers = [];
+
+  function clearEduTimers() {
+    eduTimers.forEach(t => clearTimeout(t));
+    eduTimers = [];
+  }
+
+  function resetEdu() {
+    ['edu-opt-a','edu-opt-b','edu-opt-c','edu-opt-d'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.className = 'edu-opt';
+    });
+    const fb = document.getElementById('edu-feedback');
+    if (fb) { fb.className = 'edu-feedback'; fb.innerHTML = ''; }
+    const sub = document.getElementById('edu-submit');
+    if (sub) sub.classList.remove('clicked');
+  }
+
+  function runEduLoop() {
+    clearEduTimers();
+    resetEdu();
+
+    // — Sequence A: correct answer —
+    // 1.5s: select A (correct)
+    eduTimers.push(setTimeout(() => {
+      document.getElementById('edu-opt-a').classList.add('selected');
+    }, 1500));
+    // 3s: submit click
+    eduTimers.push(setTimeout(() => {
+      document.getElementById('edu-submit').classList.add('clicked');
+    }, 3000));
+    // 3.6s: correct feedback
+    eduTimers.push(setTimeout(() => {
+      document.getElementById('edu-opt-a').className = 'edu-opt correct';
+      const fb = document.getElementById('edu-feedback');
+      fb.innerHTML = '✓ &nbsp;Correct! &nbsp;3/4 = 6/8, and 6/8 + 1/8 = <strong>7/8</strong>';
+      fb.className = 'edu-feedback show correct';
+    }, 3600));
+
+    // — Sequence B: wrong answer (starts at 8s) —
+    eduTimers.push(setTimeout(resetEdu, 8000));
+    // 9.5s: select B (wrong)
+    eduTimers.push(setTimeout(() => {
+      document.getElementById('edu-opt-b').classList.add('selected');
+    }, 9500));
+    // 11s: submit
+    eduTimers.push(setTimeout(() => {
+      document.getElementById('edu-submit').classList.add('clicked');
+    }, 11000));
+    // 11.6s: wrong + AI explanation
+    eduTimers.push(setTimeout(() => {
+      document.getElementById('edu-opt-b').className = 'edu-opt wrong';
+      document.getElementById('edu-opt-a').className = 'edu-opt correct';
+      const fb = document.getElementById('edu-feedback');
+      fb.innerHTML = '✗ &nbsp;Not quite. Find a common denominator first: 3/4 = 6/8, so 6/8 + 1/8 = <strong>7/8</strong>';
+      fb.className = 'edu-feedback show wrong';
+    }, 11600));
+
+    // — Loop: restart at 17s —
+    eduTimers.push(setTimeout(runEduLoop, 17000));
+  }
+
+  runEduLoop();
 </script>
 
 </body>
