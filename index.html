@@ -618,4 +618,49 @@
   <p>© 2026 RKMS Innovation LLC</p>
 </footer>
 
-<!-- CONTACT DIALOG --
+<!-- CONTACT DIALOG -->
+<dialog id="contactDialog">
+  <div class="dialog-inner">
+    <div class="dialog-header">
+      <h2>Get in touch</h2>
+      <button class="dialog-close" onclick="document.getElementById('contactDialog').close()">&#x2715;</button>
+    </div>
+    <p class="dialog-sub">Send a message and I'll get back to you.</p>
+    <form class="dialog-form" id="contactForm" onsubmit="handleContact(event)">
+      <div>
+        <label for="cName">Name</label>
+        <input type="text" id="cName" placeholder="Your name" required />
+      </div>
+      <div>
+        <label for="cEmail">Email</label>
+        <input type="email" id="cEmail" placeholder="you@example.com" required />
+      </div>
+      <div>
+        <label for="cMessage">Message</label>
+        <textarea id="cMessage" placeholder="What's on your mind?" required></textarea>
+      </div>
+      <button type="submit" class="btn-primary">Send message</button>
+    </form>
+    <div id="dialog-success">Message sent — I'll be in touch soon.</div>
+  </div>
+</dialog>
+
+<script>
+  document.getElementById('contactDialog').addEventListener('click', function(e) {
+    if (e.target === this) this.close();
+  });
+  function handleContact(e) {
+    e.preventDefault();
+    var name    = document.getElementById('cName').value;
+    var email   = document.getElementById('cEmail').value;
+    var message = document.getElementById('cMessage').value;
+    var subject = encodeURIComponent('Message from ' + name);
+    var body    = encodeURIComponent('From: ' + name + '\nEmail: ' + email + '\n\n' + message);
+    window.location.href = 'mailto:abhijit@rkmsinnovation.com?subject=' + subject + '&body=' + body;
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('dialog-success').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
