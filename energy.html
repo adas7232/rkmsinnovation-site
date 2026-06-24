@@ -7,6 +7,14 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
   <link rel="icon" type="image/png" href="favicon.png"/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CJCTQ322MF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CJCTQ322MF');
+  </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -806,12 +814,4 @@
     var email   = document.getElementById('cEmail').value;
     var message = document.getElementById('cMessage').value;
     var subject = encodeURIComponent('Message from ' + name);
-    var body    = encodeURIComponent('From: ' + name + '\nEmail: ' + email + '\n\n' + message);
-    window.location.href = 'mailto:abhijit@rkmsinnovation.com?subject=' + subject + '&body=' + body;
-    document.getElementById('contactForm').style.display = 'none';
-    document.getElementById('dialog-success').style.display = 'block';
-  }
-</script>
-
-</body>
-</html>
+    var body    = encodeURIComponent('From: ' + name + '\nEmail: ' 
