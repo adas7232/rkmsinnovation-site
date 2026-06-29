@@ -55,12 +55,14 @@
       border-bottom: 1px solid rgba(226,232,240,0.8);
     }
     .nav-logo {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      color: var(--blue);
+      display: flex;
+      align-items: center;
       text-decoration: none;
+    }
+    .nav-logo svg {
+      height: 54px;
+      width: auto;
+      display: block;
     }
     .nav-right { display: flex; align-items: center; gap: 8px; }
     .nav-link {
@@ -374,11 +376,14 @@
       justify-content: space-between;
     }
     .footer-logo {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--blue);
-      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+    }
+    .footer-logo svg {
+      height: 26px;
+      width: auto;
+      display: block;
+      opacity: 0.8;
     }
     .footer-right { display: flex; align-items: center; gap: 24px; }
     .footer-link {
@@ -488,7 +493,7 @@
     }
     @media (max-width: 640px) {
       nav { padding: 0 20px; }
-      .nav-logo { font-size: 16px; }
+      .nav-logo svg { height: 34px; }
       .hero { padding: 100px 20px 72px; }
       .ventures { padding: 72px 20px 96px; }
       footer { flex-direction: column; gap: 16px; text-align: center; padding: 28px 20px; }
@@ -502,7 +507,25 @@
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="/">RKMS Innovation</a>
+  <a class="nav-logo" href="/">
+    <svg viewBox="0 0 175 44" xmlns="http://www.w3.org/2000/svg" aria-label="RKMS Innovation">
+      <g stroke="#c8880a" stroke-linecap="round">
+        <line x1="21" y1="38" x2="21"   y2="20"   stroke-width="1.8"/>
+        <line x1="21" y1="38" x2="27.2" y2="21.1" stroke-width="1.7"/>
+        <line x1="21" y1="38" x2="14.8" y2="21.1" stroke-width="1.7"/>
+        <line x1="21" y1="38" x2="32.6" y2="24.2" stroke-width="1.6"/>
+        <line x1="21" y1="38" x2="9.4"  y2="24.2" stroke-width="1.6"/>
+        <line x1="21" y1="38" x2="36.6" y2="29"   stroke-width="1.5"/>
+        <line x1="21" y1="38" x2="5.4"  y2="29"   stroke-width="1.5"/>
+        <line x1="21" y1="38" x2="38.7" y2="34.9" stroke-width="1.4"/>
+        <line x1="21" y1="38" x2="3.3"  y2="34.9" stroke-width="1.4"/>
+      </g>
+      <path d="M 9,38 A 12,12 0 0,1 33,38 Z" fill="#c8880a"/>
+      <line x1="0" y1="38" x2="42" y2="38" stroke="#c8880a" stroke-width="1.6" stroke-linecap="round"/>
+      <text x="50" y="28" font-family="'DM Sans',sans-serif" font-size="20" font-weight="700" fill="#0f172a" letter-spacing="-0.03em">RKMS</text>
+      <text x="51" y="40" font-family="'Inter',sans-serif" font-size="9.5" font-weight="500" fill="#64748b" letter-spacing="0.08em">INNOVATION</text>
+    </svg>
+  </a>
   <div class="nav-right">
     <a class="nav-link" href="#ventures">Ventures</a>
     <button class="nav-cta" onclick="document.getElementById('contactDialog').showModal()">Contact</button>
@@ -613,7 +636,25 @@
 
 <!-- FOOTER -->
 <footer>
-  <span class="footer-logo">RKMS Innovation</span>
+  <span class="footer-logo">
+    <svg viewBox="0 0 175 44" xmlns="http://www.w3.org/2000/svg" aria-label="RKMS Innovation">
+      <g stroke="#c8880a" stroke-linecap="round">
+        <line x1="21" y1="38" x2="21"   y2="20"   stroke-width="1.8"/>
+        <line x1="21" y1="38" x2="27.2" y2="21.1" stroke-width="1.7"/>
+        <line x1="21" y1="38" x2="14.8" y2="21.1" stroke-width="1.7"/>
+        <line x1="21" y1="38" x2="32.6" y2="24.2" stroke-width="1.6"/>
+        <line x1="21" y1="38" x2="9.4"  y2="24.2" stroke-width="1.6"/>
+        <line x1="21" y1="38" x2="36.6" y2="29"   stroke-width="1.5"/>
+        <line x1="21" y1="38" x2="5.4"  y2="29"   stroke-width="1.5"/>
+        <line x1="21" y1="38" x2="38.7" y2="34.9" stroke-width="1.4"/>
+        <line x1="21" y1="38" x2="3.3"  y2="34.9" stroke-width="1.4"/>
+      </g>
+      <path d="M 9,38 A 12,12 0 0,1 33,38 Z" fill="#c8880a"/>
+      <line x1="0" y1="38" x2="42" y2="38" stroke="#c8880a" stroke-width="1.6" stroke-linecap="round"/>
+      <text x="50" y="28" font-family="'DM Sans',sans-serif" font-size="20" font-weight="700" fill="#0f172a" letter-spacing="-0.03em">RKMS</text>
+      <text x="51" y="40" font-family="'Inter',sans-serif" font-size="9.5" font-weight="500" fill="#64748b" letter-spacing="0.08em">INNOVATION</text>
+    </svg>
+  </span>
   <div class="footer-right">
     <a class="footer-link" href="#ventures">Ventures</a>
     <button class="footer-link" onclick="document.getElementById('contactDialog').showModal()" style="background:none;border:none;cursor:pointer;font-family:'Inter',sans-serif;">Contact</button>
